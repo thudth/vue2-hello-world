@@ -1,63 +1,55 @@
 import VueRouter from "vue-router";
-import Home from "@/components/Home";
-import Students from "@/components/student/Students";
-import StudentDetail from "@/components/student/StudentDetail";
-import Teachers from "@/components/teacher/Teachers";
-import TeacherDetail from "@/components/teacher/TeacherDetail";
-import Unicorns from "@/components/unicorn/Unicorns";
-import UnicornDetail from "@/components/unicorn/UnicornDetail";
-import NotFound from "@/components/NotFound";
 
 const routes = [
     {
         path: "/",
         name: "Home",
-        component: Home,
+        component: () =>import('@/components/Home'),
     },
     {
         path: "/students",
         name: "Students",
-        component: Students,
+        component: () =>import('@/components/student/Students'),
     },
     {
         path: "/student-detail",
         name: "StudentDetail",
-        component: StudentDetail,
+        component: () =>import('@/components/student/StudentDetail'),
     },
     {
         path: "/teachers",
         name: "Teachers",
-        component: Teachers,
+        component: () =>import('@/components/teacher/Teachers'),
     },
     {
         path: "/teacher-detail",
         name: "TeacherDetail",
-        component: TeacherDetail,
+        component: () =>import('@/components/teacher/TeacherDetail'),
     },
     {
         path: "/unicorns",
         name: "Unicorns",
-        component: Unicorns,
+        component: () =>import('@/components/unicorn/Unicorns'),
     },
     {
         path: "/unicorn",
         name: "Unicorn",
-        component: UnicornDetail,
+        component: () =>import('@/components/unicorn/UnicornDetail'),
     },
     {
         path: "/unicorn-addition",
         name: "UnicornAddition",
-        component: UnicornDetail,
+        component: () =>import('@/components/unicorn/UnicornDetail'),
     },
     {
         path: "/unicorn-detail/:id",
         name: "UnicornDetail",
-        component: UnicornDetail,
+        component: () =>import('@/components/unicorn/UnicornDetail'),
     },
     {
         path: "*",
         name: "NotFound",
-        component: NotFound,
+        component: () =>import('@/components/NotFound'),
     },
 ];
 

@@ -18,8 +18,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(unicorn, unIdx) in unicorns" :key="unIdx"
-          v-bind:style="{ color: unicorn.colour }">
+      <tr v-for="(unicorn, unIdx) in unicorns" :key="unIdx">
         <td>
           <router-link :to="{ name: 'UnicornDetail', params: { id: unicorn._id }}">
             <i class="bi-pencil"></i>
@@ -31,7 +30,7 @@
         <td>{{ unicorn._id }}</td>
         <td>{{ unicorn.name }}</td>
         <td>{{ unicorn.age }}</td>
-        <td>{{ unicorn.colour }}</td>
+        <td v-bind:style="{ color: unicorn.colour }">{{ unicorn.colour }}</td>
       </tr>
       </tbody>
     </table>
@@ -39,7 +38,7 @@
 </template>
 
 <script>
-import UnicornsApi from '../../service/UnicornsApi'
+import UnicornsApi from '@/service/UnicornsApi'
 
 export default {
   name: "Unicorns",
@@ -48,23 +47,18 @@ export default {
       this.loading = true;
       UnicornsApi.getAll().then(response => {
         this.unicorns = response.data;
-        console.log('response', response);
       }).catch(error => {
         console.log('error', error);
-      }).finally(f => {
+      }).finally(() => {
         this.loading = false;
-        console.log('f', f);
       })
     },
     deleteOne(id) {
       UnicornsApi.delete(id).then(response => {
         this.unicorns = response.data;
-        console.log('response', response);
         this.getAll();
       }).catch(error => {
         console.log('error', error);
-      }).finally(f => {
-        console.log('f', f);
       })
     }
   },

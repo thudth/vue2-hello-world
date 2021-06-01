@@ -1,4 +1,4 @@
-import api from "./ApiCommon";
+import api from "@/service/ApiCommon";
 
 class UnicornsApi {
     getAll() {
@@ -19,10 +19,6 @@ class UnicornsApi {
 
     delete(id) {
         return api.delete(`/unicorns/${id}`);
-    }
-
-    deleteAll() {
-        return api.delete(`/unicorns`);
     }
 }
 

@@ -1,12 +1,12 @@
 import VueRouter from "vue-router";
-import Home from "./components/Home";
-import Students from "./components/student/Students";
-import StudentDetail from "./components/student/StudentDetail";
-import Teachers from "./components/teacher/Teachers";
-import TeacherDetail from "./components/teacher/TeacherDetail";
-import Unicorns from "./components/unicorn/Unicorns";
-import UnicornDetail from "./components/unicorn/UnicornDetail";
-import NotFound from "./components/NotFound";
+import Home from "@/components/Home";
+import Students from "@/components/student/Students";
+import StudentDetail from "@/components/student/StudentDetail";
+import Teachers from "@/components/teacher/Teachers";
+import TeacherDetail from "@/components/teacher/TeacherDetail";
+import Unicorns from "@/components/unicorn/Unicorns";
+import UnicornDetail from "@/components/unicorn/UnicornDetail";
+import NotFound from "@/components/NotFound";
 
 const routes = [
     {

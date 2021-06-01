@@ -1,37 +1,37 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <ul>
-      <li>
-        <router-link to="/">Home</router-link>
-      </li>
-      <li>
-        <router-link to="/students">Students</router-link>
-      </li>
-      <li>
-        <router-link to="/student-detail">Student Detail</router-link>
-      </li>
-      <li>
-        <router-link to="/teachers">Teachers</router-link>
-      </li>
-      <li>
-        <router-link to="/teacher-detail">Teacher Detail</router-link>
-      <li>
-        <router-link to="/unicorns">Unicorns</router-link>
-      </li>
-      <li>
-        <router-link to="/unicorn">Unicorn Detail</router-link>
-      </li>
-      <li>
-        <router-link to="/other">Other</router-link>
-      </li>
-    </ul>
-    <router-view></router-view>
+    <div class="p-4">
+      <div class="row">
+        <div class="col-3">
+          <HelloWorld msg="Welcome to Your Vue.js App"/>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <router-link active-class="active" to="/">Home</router-link>
+            </li>
+            <li class="list-group-item">
+              <router-link to="/students">Students</router-link>
+            </li>
+            <li class="list-group-item">
+              <router-link to="/teachers">Teachers</router-link>
+            </li>
+            <li class="list-group-item">
+              <router-link to="/unicorns">Unicorns</router-link>
+            </li>
+            <li class="list-group-item">
+              <router-link to="/other">Other</router-link>
+            </li>
+          </ul>
+        </div>
+        <div class="col-9">
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld'
 
 export default {
   name: 'App',

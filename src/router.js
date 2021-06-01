@@ -4,6 +4,8 @@ import Students from "./components/student/Students";
 import StudentDetail from "./components/student/StudentDetail";
 import Teachers from "./components/teacher/Teachers";
 import TeacherDetail from "./components/teacher/TeacherDetail";
+import Unicorns from "./components/unicorn/Unicorns";
+import UnicornDetail from "./components/unicorn/UnicornDetail";
 import NotFound from "./components/NotFound";
 
 const routes = [
@@ -31,6 +33,26 @@ const routes = [
         path: "/teacher-detail",
         name: "TeacherDetail",
         component: TeacherDetail,
+    },
+    {
+        path: "/unicorns",
+        name: "Unicorns",
+        component: Unicorns,
+    },
+    {
+        path: "/unicorn",
+        name: "Unicorn",
+        component: UnicornDetail,
+    },
+    {
+        path: "/unicorn-addition",
+        name: "UnicornAddition",
+        component: UnicornDetail,
+    },
+    {
+        path: "/unicorn-detail/:id",
+        name: "UnicornDetail",
+        component: UnicornDetail,
     },
     {
         path: "*",

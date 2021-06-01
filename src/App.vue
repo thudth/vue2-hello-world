@@ -9,13 +9,18 @@
         <router-link to="/students">Students</router-link>
       </li>
       <li>
-        <router-link to="/student-detail">StudentDetail</router-link>
+        <router-link to="/student-detail">Student Detail</router-link>
       </li>
       <li>
         <router-link to="/teachers">Teachers</router-link>
       </li>
       <li>
-        <router-link to="/teacher-detail">TeacherDetail</router-link>
+        <router-link to="/teacher-detail">Teacher Detail</router-link>
+      <li>
+        <router-link to="/unicorns">Unicorns</router-link>
+      </li>
+      <li>
+        <router-link to="/unicorn">Unicorn Detail</router-link>
       </li>
       <li>
         <router-link to="/other">Other</router-link>
@@ -37,6 +42,9 @@ export default {
 </script>
 
 <style>
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
 #app {
 }
 </style>

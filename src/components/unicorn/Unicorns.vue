@@ -6,9 +6,14 @@
       <thead>
       <tr>
         <th colspan="3" class="text-center">
-          <a :href="'/unicorn-addition'">
-            <i class="bi-plus-circle-fill text-success"></i>
-          </a>
+          <div class="d-flex justify-content-around">
+            <a :href="'/unicorn-addition'">
+              <i class="bi-plus-circle-fill text-success"></i>
+            </a>
+            <a class="text-body" @click="selectedUnicorns = {}">
+              <i class="bi bi-arrow-counterclockwise"></i>
+            </a>
+          </div>
         </th>
         <th>Index</th>
         <th>ID</th>
@@ -18,7 +23,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(unicorn, unIdx) in unicorns" :key="unIdx">
+      <tr v-for="(unicorn, unIdx) in unicorns" :key="unIdx" @click="selectedUnicorns = unicorn">
         <td>
           <router-link :to="{ name: 'UnicornDetail', params: { id: unicorn._id }}">
             <i class="bi-pencil"></i>
@@ -34,14 +39,20 @@
       </tr>
       </tbody>
     </table>
+    <UnicornDetail
+        :unicorn-detail="selectedUnicorns"
+        v-on:saved="getAll"
+    ></UnicornDetail>
   </div>
 </template>
 
 <script>
 import UnicornsApi from '@/service/UnicornsApi'
+import UnicornDetail from "@/components/unicorn/UnicornDetail";
 
 export default {
   name: "Unicorns",
+  components: {UnicornDetail},
   methods: {
     getAll() {
       this.loading = true;
@@ -65,6 +76,7 @@ export default {
   data() {
     return {
       unicorns: [],
+      selectedUnicorns: {},
       loading: false,
     }
   },

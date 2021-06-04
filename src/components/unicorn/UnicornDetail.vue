@@ -3,6 +3,14 @@
     <a @click="$router.go(-1)"><i class="bi-arrow-left-circle"></i> Back</a>
     <h3>UnicornDetail</h3>
     <div class="spinner-border" v-if="loading"></div>
+    <div v-if="unicornDetail">
+      <p>Props Data:</p>
+
+      <p>ID: {{ unicornDetail._id }}</p>
+      <p>Name: {{ unicornDetail.name }}</p>
+      <p>Age: {{ unicornDetail.age }}</p>
+      <p>Color: {{ unicornDetail.colour }}</p>
+    </div>
     <form v-if="!loading" ref="form">
       <div class="mb-3">
         <label for="unicorn-id" class="form-label">ID</label>
@@ -31,12 +39,16 @@
 
 <script>
 import UnicornsApi from "@/service/UnicornsApi";
-import {cloneDeep} from 'lodash';
+import {isEmpty, cloneDeep} from 'lodash';
 
 export default {
   name: "UnicornDetail",
   props: {
-    unicornProp: {}
+    unicornDetail: {
+      type: Object,
+      deep: true,
+      immediate: true,
+    }
   },
   data() {
     return {
@@ -72,12 +84,22 @@ export default {
       console.log(data);
       api.then(() => {
         this.loading = false;
-        history.back();
+        if (isEmpty(this.unicornDetail)) {
+          history.back();
+        } else {
+          this.$emit('saved')
+        }
       }).catch(error => {
         console.log('error', error);
       }).finally(() => {
         this.loading = false;
       })
+    }
+  },
+  watch: {
+    unicornDetail(newVal, oldVal) {
+      console.log('unicornDetail change', newVal, oldVal);
+      this.unicorn = cloneDeep(newVal);
     }
   },
   created() {
